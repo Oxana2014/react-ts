@@ -18,10 +18,16 @@ function App() {
     });
   }
 
+  function deleteTodoHandler(id: string) {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== id);
+    });
+  }
+
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onDelete={deleteTodoHandler} />
     </div>
   );
 }
